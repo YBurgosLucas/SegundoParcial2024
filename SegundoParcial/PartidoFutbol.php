@@ -59,3 +59,4 @@ include_once "Partido.php";
         return $coef_base;
     }
  }
+ ?>

@@ -1,29 +1,23 @@
 <?php
     class Torneo{
         private $colPartidos;
-        private $entregaPremiosAlosjugadoresDeCadaPartido;
         private $importe;
         
-        public function __construct($colPartidos, $entregaPremiosAlosjugadoresDeCadaPartido, $importe){
+        public function __construct($colPartidos, $importe){
             $this->colPartidos=$colPartidos;
-            $this->entregaPremiosAlosJugadoresDeCadaPartido=$entregaPremiosAlosjugadoresDeCadaPartido;
             $this->importe=$importe;
         }
         public function getColPartidos(){
             return $this->colPartidos;
         }
-        public function getEntregaPremios(){
-            return $this->entregaPRemiosAlosJugadoresDeCadaPartido;
-        }
+
         public function getImporte(){
             return $this->importe;
         }
         public function setColPartidos($colPartidos){
             $this->colPartidos=$colPartidos;
         }
-        public function setEntregaPremios($entregaPremiosAlosjugadoresDeCadaPartido){
-            $this->entregaPremiosAlosjugadoresDeCadaPartido=$entregaPremiosAlosjugadoresDeCadaPartido;
-        }
+
         public function setImporte($importe){
             $this->importe=$importe;
         }
@@ -37,7 +31,6 @@
         }
         public function __toString(){
             $cad="\nCOLECCION  PARTIDOS:".$this->retornarColPartidos().
-                 "\nEntrega premios a los ganadores de cada partido:".$this->getEntregaPremios().
                  "\nImporte: $".$this->getImporte();
             return $cad;
         }
@@ -72,6 +65,7 @@
             return $partidoEncontrado;
         }
         public function darGanadores($deporte){
-            
+
         }
     }
+?>
