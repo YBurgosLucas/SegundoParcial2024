@@ -41,24 +41,36 @@
             $idpartido=0;
             $fechaCreada=date("y-m-d");
             $partidoEncontrado=false;
-            $objPartidoNuevo=new Partido($idpartido, $fechaCreada ,null,$cantGolesE1,null,$cantGolesE2); //se crea la instancia partido
+            $objE1=null;
+            $objE2=null;
+            $objPartidoNuevo=new Partido($idpartido, $fechaCreada ,$objE1,$cantGolesE1,$objE2,$cantGolesE2); //se crea la instancia partido
             foreach($colPartidos as $unPartido){
-                if($unPartido->getFecha() == $fecha && ($unPartido instanceof PartidoBasquetBol == $tipoPartido || $unPartido instanceof PartidoFutbol ==$tipoPartido) ){
-                    $partidoEncontrado=true;
+                if($unPartido->getFecha() == $fecha ){
+                    if ($tipoPartido == 'basquetbol' && $unPartido instanceof PartidoBasquetBol) {
+                        $partidoEncontrado = true;
+                    } elseif ($tipoPartido == 'futbol' && $unPartido instanceof PartidoFutbol) {
+                        $partidoEncontrado = true;
+                    }
                 }
             }
+                
+            
             if($partidoEncontrado==false){
                 if($objPartidoNuevo instanceof PartidoBasquetBol){
                     if($OBJEquipo1->getCantJugadores() == $OBJEquipo2->getCantJugadores()){
                         $partidoEncontrado=true;
-                        $colPartidos[]=new PartidoBasquetBol($idpartido,$fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2,$cantGolesE2);
+                        $objPartidoNuevo=new PartidoBasquetBol($idpartido,$fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2,$cantGolesE2);
+                        $colPartidos[]=$objPartidoNuevo;
+                        $this->setColPartidos($colPartidos);
 
                     }
                 }
                 else{
                     if($OBJEquipo1->getCantJugadores() == $OBJEquipo2->getCantJugadores()){
                         $partidoEncontrado=true;
-                        $colPartidos[]=new PartidoFutbol($idpartido, $fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2, $cantGolesE2);
+                        $objPartidoNuevo=new PartidoFutbol($idpartido, $fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2, $cantGolesE2);
+                        $colPartidos[]=$objPartidoNuevo;
+                        $this->setColPartidos($colPartidos);
                     }
                 }
             }

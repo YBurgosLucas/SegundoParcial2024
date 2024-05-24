@@ -48,6 +48,7 @@ if($respuesta){
 }
 else{
     echo "no";
+    print_r($objTorneo);
 }
 
 ?>
