@@ -56,7 +56,7 @@
                 
             
             if($partidoEncontrado==false){
-                if($objPartidoNuevo instanceof PartidoBasquetBol){
+                if($tipoPartido =="BasquetBol"){
                     if($OBJEquipo1->getCantJugadores() == $OBJEquipo2->getCantJugadores()){
                         $partidoEncontrado=true;
                         $objPartidoNuevo=new PartidoBasquetBol($idpartido,$fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2,$cantGolesE2);
