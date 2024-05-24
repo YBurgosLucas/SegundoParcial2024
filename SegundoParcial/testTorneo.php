@@ -42,7 +42,7 @@ $objPartidoFutbol= new PartidoFutbol(14, date("2024-05-07"),$objE1, 3, $objE2, 2
 $objPartidoFutbol2= new PartidoFutbol(15, date("2024-05-08"),$objE3, 0, $objE4, 1);
 $objPartidoFutbol3= new PartidoFutbol(16, date("2024-05-09"), $objE5, 2, $objE6, 3);
 
-$respuesta=$objTorneo->ingresarPartido($objE5, $objE11, "2024-05-23", "futbol");
+$respuesta=$objTorneo->ingresarPartido($objE5, $objE11, date("2024-05-23"), "futbol");
 if($respuesta){
     echo "incorporado";
 }

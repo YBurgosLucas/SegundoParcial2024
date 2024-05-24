@@ -101,7 +101,7 @@ public function __toString(){
 public function coeficientePartido(){
     $coefBase=$this->getCoefBase();
 
-    $cantJugadores1=$this->getCantJugadores();
+    $cantJugadores1=$this->getObjEquipo1()->getCantJugadores();
     $cantJugadores2=$this->getObjEquipo2()->getCantJugadores();
     $cantTotalJugadores=$cantJugadores1+$cantJugadores2;
 

@@ -38,7 +38,7 @@
             $colPartidos=$this->getColPartidos();
             $cantGolesE1=0;
             $cantGolesE2=0;
-            $idpartido="";
+            $idpartido=0;
             $fechaCreada=date("y-m-d");
             $partidoEncontrado=false;
             $objPartidoNuevo=new Partido($idpartido, $fechaCreada ,null,$cantGolesE1,null,$cantGolesE2); //se crea la instancia partido
@@ -51,14 +51,14 @@
                 if($objPartidoNuevo instanceof PartidoBasquetBol){
                     if($OBJEquipo1->getCantJugadores() == $OBJEquipo2->getCantJugadores()){
                         $partidoEncontrado=true;
-                        $colPartidos[]=new PartidoBasquetBol("BasquetBol",$fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2,$cantGolesE2);
+                        $colPartidos[]=new PartidoBasquetBol($idpartido,$fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2,$cantGolesE2);
 
                     }
                 }
                 else{
                     if($OBJEquipo1->getCantJugadores() == $OBJEquipo2->getCantJugadores()){
                         $partidoEncontrado=true;
-                        $colPartidos[]=new PartidoFutbol("Futbol", $fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2, $cantGolesE2);
+                        $colPartidos[]=new PartidoFutbol($idpartido, $fecha, $OBJEquipo1, $cantGolesE1, $OBJEquipo2, $cantGolesE2);
                     }
                 }
             }
