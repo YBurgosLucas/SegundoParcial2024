@@ -44,11 +44,31 @@ $objPartidoFutbol3= new PartidoFutbol(16, date("2024-05-09"), $objE5, 2, $objE6,
 
 $respuesta=$objTorneo->ingresarPartido($objE5, $objE11, date("2024-05-23"), "futbol");
 if($respuesta){
-    echo "incorporado";
+    echo "incorporado\n";
 }
 else{
-    echo "no";
-    print_r($objTorneo);
+    echo "no se pudo incorporar\n";
 }
-
+echo "_____________________INCORPORAR________________________\n";
+$respuesta=$objTorneo->ingresarPartido($objE11, $objE11, date("2024-05-23"), "BasquetBol");
+if($respuesta){
+    echo "incorporado\n";
+    echo $objTorneo."\n";
+}
+else{
+    echo "no se pudo incorporar\n";
+    
+}
+echo "_____________________INCORPORAR________________________\n";
+$respuesta=$objTorneo->ingresarPartido($objE9, $objE10, date("2024-05-25"), "BasquetBol");
+if($respuesta){
+    echo "incorporado\n";
+    echo $objTorneo."\n";
+}
+else{
+    echo "no se pudo incorporar\n";
+    
+}
+echo "____________________Mostrar ganadores____________________\n";
+$objTorneo->darGanadores("futbol");
 ?>
